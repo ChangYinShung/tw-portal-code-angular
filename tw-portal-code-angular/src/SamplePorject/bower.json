@@ -1,0 +1,8 @@
+{
+  "name": "myproject",
+  "dependencies": {
+    "angular": "^1.6.2",
+    "lodash": "^4.17.4",
+    "bootstrap": "^3.3.7"
+  }
+}

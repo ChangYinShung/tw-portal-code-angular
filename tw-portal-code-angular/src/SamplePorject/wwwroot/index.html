@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Angular project Demo</title>
+  <style>
+    html {
+      background: #f1f1f1;
+      height: 100%;
+    }
+
+    body {
+      background: #fff;
+      color: #505050;
+      font: 14px 'Segoe UI', tahoma, arial, helvetica, sans-serif;
+      margin: 1%;
+      min-height: 95.5%;
+      border: 1px solid silver;
+      position: relative;
+    }
+
+    #header {
+      padding: 0;
+    }
+
+      #header h1 {
+        font-size: 44px;
+        font-weight: normal;
+        margin: 0;
+        padding: 10px 30px 10px 30px;
+      }
+
+      #header span {
+        margin: 0;
+        padding: 0 30px;
+        display: block;
+      }
+
+      #header p {
+        font-size: 20px;
+        color: #fff;
+        background: #007acc;
+        padding: 0 30px;
+        line-height: 50px;
+        margin-top: 25px;
+      }
+
+        #header p a {
+          color: #fff;
+          text-decoration: underline;
+          font-weight: bold;
+          padding-right: 35px;
+          background: no-repeat right bottom url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAWCAMAAAAcqPc3AAAANlBMVEUAAAAAeswfitI9mthXp91us+KCvuaTx+mjz+2x1u+83PLH4vTR5/ba7Pjj8Pns9fv1+v3////wy3dWAAAAAXRSTlMAQObYZgAAAHxJREFUeNp9kVcSwCAIRMHUYoH7XzaxOxJ9P8oyQ1uIqNPwh3s2aLmIM2YtqrLcQIeQEylhuCeUOlhgve5yoBCfWmlnlgkN4H8ykbpaE7gR03AbUHiwoOxUH9Xp+ubd41p1HF3mBPrfC87BHeTdaB3ceeKL9HGpcvX9zu6+DdMWT9KQPvYAAAAASUVORK5CYII=);
+        }
+
+    #main {
+      padding: 5px 30px;
+      clear: both;
+    }
+
+    .section {
+      width: 21.7%;
+      float: left;
+      margin: 0 0 0 4%;
+    }
+
+      .section h2 {
+        font-size: 13px;
+        text-transform: uppercase;
+        margin: 0;
+        border-bottom: 1px solid silver;
+        padding-bottom: 12px;
+        margin-bottom: 8px;
+      }
+
+      .section.first {
+        margin-left: 0;
+      }
+
+        .section.first h2 {
+          font-size: 24px;
+          text-transform: none;
+          margin-bottom: 25px;
+          border: none;
+        }
+
+        .section.first li {
+          border-top: 1px solid silver;
+          padding: 8px 0;
+        }
+
+      .section.last {
+        margin-right: 0;
+      }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      line-height: 20px;
+    }
+
+    li {
+      padding: 4px 0;
+    }
+
+    a {
+      color: #267cb2;
+      text-decoration: none;
+    }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+    #footer {
+      clear: both;
+      padding-top: 50px;
+    }
+
+      #footer p {
+        position: absolute;
+        bottom: 10px;
+      }
+  </style>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <script src="lib/lodash/dist/lodash.min.js"></script>
+  <script src="lib/jquery/dist/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="lib/angular/angular.min.js"></script>
+
+  <!-- Main Plugin's-->
+  <script src="dist/twProtalCode.directive.min.js"></script>
+  <!-- Demo -->
+  <script src="app/app.js"></script>
+  <script src="app/MainController.js"></script>
+
+
+</head>
+<body>
+
+  <div id="header">
+    <h1>Angular wtith ASP.NET Core</h1>
+    <span>
+      建立裝案用，沒有任何功能
+    </span>
+    <p>{{'Angular is work'}}</p>
+  </div>
+
+  <div id="main" ng-controller="MainController as Ctrl">
+    <div class="section first" style="width:100%">
+
+      <h2>Result</h2>
+      <ul>
+        <li><label>縣市:</label>{{Ctrl.County || '尚未選擇縣市'}}</li>
+        <li><label>鄉鎮區:</label>{{Ctrl.District || '尚未選擇鄉鎮區'}}</li>
+        <li><label>郵遞區號:</label>{{Ctrl.ZipCode || '尚未選擇鄉鎮區'}}</li>
+        <li><label>結果:</label>{{Ctrl.FullAddress}}</li>
+      </ul>
+    </div>
+    <h2>Base Template</h2>
+    <tw-protal-code type="base" county="Ctrl.County" district="Ctrl.District" zipcode="Ctrl.ZipCode" full-address="Ctrl.FullAddress"></tw-protal-code>
+    <h2>bootstrap3 Template</h2>
+    <fieldset>
+      <tw-protal-code type="bs3" county="Ctrl.County" district="Ctrl.District" zipcode="Ctrl.ZipCode" full-address="Ctrl.FullAddress"></tw-protal-code>
+      <div class="row">
+        <div class="col-sm-12">
+          <label>地址</label>
+          <input class="form-control" value="詳細地址" />
+        </div>
+      </div>
+    </fieldset>
+    <!--<fieldset>
+      <div class='row'>
+        <div class='col-sm-4'>
+          <div class='form-group'>
+            <label for="County">縣市</label>
+            <select class="form-control"  type="text" ></select>
+          </div>
+        </div>
+        <div class='col-sm-4'>
+          <div class='form-group'>
+            <label for="District">鄉鎮區</label>
+            <select class="form-control" type="text"></select>
+          </div>
+        </div>
+        <div class='col-sm-4'>
+          <div class='form-group'>
+            <label for="ZipCode">郵遞區號</label>
+            <input class="form-control" id="user_lastname" type="text" />
+          </div>
+        </div>
+      </div>
+    </fieldset>-->
+
+
+    <div id="footer">
+      <p>We would love to hear your <a href="http://www.furthersoftware.com.tw">www.furthersoftware.com.tw</a></p>
+    </div>
+  </div>
+
+</body>
+</html>
