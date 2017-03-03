@@ -2,7 +2,7 @@
 
 ##說明 ##  
 module name: `twProtalCode`  
-type: `bs3`,'base'  
+type: `bs3`,`base`   
 county:`縣市`  
 district:`鄉鎮區`  
 zipcode:`郵遞區號`  
