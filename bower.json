@@ -1,0 +1,22 @@
+{
+  "name": "tw-portal-code-angular",
+  "homepage": "/src/index.html",
+  "authors": [
+    "ChangYinShung <changyenshung@gmail.com>"
+  ],
+  "description": "taiwan zip/portal code for angular directive/component",
+  "main": [ "./dist/twProtalCode.directive.js","./dist/twProtalCode.directive.min.js" ],
+  "keywords": [
+    "angular",
+    "tw-zipcode",
+    "tw-portalcode"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
