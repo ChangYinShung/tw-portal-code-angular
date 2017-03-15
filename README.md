@@ -1,19 +1,19 @@
 # tw-portal-code-angular
 
-##»¡©ú ##  
+##èªªæ˜   
 module name: `twProtalCode`  
 type: `bs3`,`base`   
-county:`¿¤¥«`  
-district:`¶mÂí°Ï`  
-zipcode:`¶l»¼°Ï¸¹`  
+county:`ç¸£å¸‚`  
+district:`é„‰é®å€`  
+zipcode:`éƒµéå€è™Ÿ`  
 full-address:`optional`
 
 
 
-## Demo ##  
+## Demo   
 
 <a href="https://github.com/ChangYinShung/tw-portal-code-angular/tree/master/src/SamplePorject/wwwroot">Demo Site</a>
-### ¨Ï¥Î¤è¦¡ ###  
+### ä½¿ç”¨æ–¹å¼   
 
 ``` html
   <tw-protal-code type="base" county="Ctrl.County" district="Ctrl.District" zipcode="Ctrl.ZipCode" full-address="Ctrl.FullAddress"></tw-protal-code>
