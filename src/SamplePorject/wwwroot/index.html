@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Angular project Demo</title>
+  <title>tw-protal-code for angular</title>
   <style>
     html {
       background: #f1f1f1;
@@ -143,13 +143,13 @@
   <div id="header">
     <h1>Angular wtith ASP.NET Core</h1>
     <span>
-      建立裝案用，沒有任何功能
+      Taiwan zipcode  for angular (Trandition Chineses)
     </span>
     <p>{{'Angular is work'}}</p>
   </div>
 
   <div id="main" ng-controller="MainController as Ctrl">
-    <div class="section first" style="width:100%">
+    <div class="section first form-inline" style="width:100%">
 
       <h2>Result</h2>
       <ul>
@@ -170,6 +170,26 @@
           <input class="form-control" value="詳細地址" />
         </div>
       </div>
+    </fieldset>
+    <h2>bootstrap3  address Template</h2>
+    <fieldset>
+      <tw-protal-code type="bs3.search" county="Ctrl.County" district="Ctrl.District" zipcode="Ctrl.ZipCode" full-address="Ctrl.FullAddress">
+        <div class="col-sm-4">
+          <label>&nbsp;</label>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="button">查詢</button>
+            </span>
+          </div>
+        </div>
+      </tw-protal-code>
+      <!--<div class="row">
+        <div class="col-sm-12">
+          <label>地址</label>
+          <input class="form-control" value="詳細地址" />
+        </div>
+      </div>-->
     </fieldset>
     <!--<fieldset>
       <div class='row'>

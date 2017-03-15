@@ -1,7 +1,8 @@
 /*
- *@param ngModel {object} {Latitude:number,Longitude:number}
- * @param zoom {number} number
- * @example <google-map ng-model={location}></google-map>
+ * @param type {string} {Latitude:number,Longitude:number}
+ * @param county {string} number
+ * @param district {string} number
+ * @param zipcode {string} number
  */
 
 (function () {
@@ -15,12 +16,13 @@
       templateUrl: getTemplate,
       controller: twZipCodeController,
       controllerAs: 'Ctrl',
+      transclude: true,
       bindings: {
-        btnStyle:'<',
+        btnStyle: '<',
         county: '=',
         district: '=',
         zipcode: '=',
-        fullAddress:'=?'
+        fullAddress: '=?'
       }
     };
   }
@@ -141,7 +143,7 @@
     vm.countyOption = 縣市選項(data);//都市選項
 
 
-        
+
     $scope.$watch('Ctrl.county', function (newValue, oldValue) {
       if (!newValue) return;
       vm.districtOption = 鄉鎮區選項(vm.county);
@@ -155,14 +157,14 @@
     $scope.$watch('Ctrl.shortAddress', function (newValue, oldValue) {
       if (!newValue) return;
       if (newValue == oldValue) return;
-      vm.district=newValue.Name;
-      vm.zipcode=newValue.ID;
+      vm.district = newValue.Name;
+      vm.zipcode = newValue.ID;
     });
     $scope.$watchGroup(['Ctrl.county', 'Ctrl.shortAddress'], function (newValue) {
       if (!newValue[0]) return;
       if (!vm.shortAddress) return;
 
-      vm.fullAddress = vm.shortAddress.ID  + vm.county + vm.shortAddress.Name;
+      vm.fullAddress = vm.shortAddress.ID + vm.county + vm.shortAddress.Name;
     })
 
 
@@ -209,7 +211,7 @@
 
   templates.$inject = ['$templateCache'];
   function templates($templateCache) {
-    $templateCache.put('base.tpl',                         
+    $templateCache.put('base.tpl',
  '         <select  ng-model="Ctrl.county" ng-options="option for option in Ctrl.countyOption" ng-change="Ctrl.ChangeCounty()">' +
                         '<option  value="">請選擇縣市</option>' +
                       '</select>' +
@@ -218,31 +220,51 @@
                       '</select>' +
                       '<input ng-model="Ctrl.zipcode" disabled>');
 
-    $templateCache.put('bs3.tpl',  
-'         <div class="row">  '  + 
-'           <div class="col-sm-4">  '  + 
-'             <div class="form-group">  '  + 
-'               <label for="County">縣市</label>  '  + 
+    $templateCache.put('bs3.tpl',
+'         <div class="row">  ' +
+'           <div class="col-sm-4">  ' +
+'             <div class="form-group">  ' +
+'               <label for="County">縣市</label>  ' +
 '               <select class="form-control"  ng-model="Ctrl.county" ng-options="option for option in Ctrl.countyOption" ng-change="Ctrl.ChangeCounty()" >' +
 //'                   <option value="">請選擇縣市</option>',
 '               </select>  ' +
-'             </div>  '  + 
-'           </div>  '  + 
-'           <div class="col-sm-4">  '  + 
-'             <div class="form-group">  '  + 
-'               <label for="District">鄉鎮區</label>  '  + 
+'             </div>  ' +
+'           </div>  ' +
+'           <div class="col-sm-4">  ' +
+'             <div class="form-group">  ' +
+'               <label for="District">鄉鎮區</label>  ' +
 '               <select class="form-control"  ng-model="Ctrl.shortAddress" ng-options="option as option.Name for option in Ctrl.districtOption" ng-change="Ctrl.ChangeDistrict()">' +
 //'                   <option value="">請選擇鄉鎮區</option>',
 '               </select>  ' +
-'             </div>  '  + 
-'           </div>  '  + 
-'           <div class="col-sm-4">  '  + 
-'             <div class="form-group">  '  + 
-'               <label for="ZipCode">郵遞區號</label>  '  + 
+'             </div>  ' +
+'           </div>  ' +
+'           <div class="col-sm-4">  ' +
+'             <div class="form-group">  ' +
+'               <label for="ZipCode">郵遞區號</label>  ' +
 '               <input class="form-control" id="zipcode" type="text" ng-model="Ctrl.zipcode" disabled />  ' +
-'             </div>  '  + 
-'           </div>  '  + 
-'        </div>  ' );
+'             </div>  ' +
+'           </div>  ' +
+'        </div>  ');
+    $templateCache.put('bs3.search.tpl',
+'         <div class="row">  ' +
+'           <div class="col-sm-4">  ' +
+'             <div class="form-group">  ' +
+'               <label for="County">縣市</label>  ' +
+'               <select class="form-control"  ng-model="Ctrl.county" ng-options="option for option in Ctrl.countyOption" ng-change="Ctrl.ChangeCounty()" >' +
+//'                   <option value="">請選擇縣市</option>',
+'               </select>  ' +
+'             </div>  ' +
+'           </div>  ' +
+'           <div class="col-sm-4">  ' +
+'             <div class="form-group">  ' +
+'               <label for="District">鄉鎮區</label>  ' +
+'               <select class="form-control"  ng-model="Ctrl.shortAddress" ng-options="option as option.Name for option in Ctrl.districtOption" ng-change="Ctrl.ChangeDistrict()">' +
+//'                   <option value="">請選擇鄉鎮區</option>',
+'               </select>  ' +
+'             </div>  ' +
+'           </div>  ' +
+'                 <ng-transclude></ng-transclude>' +
+'        </div>  ');
 
   }
 

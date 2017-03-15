@@ -1,4 +1,4 @@
-/// <binding AfterBuild='default' />
+/// <binding AfterBuild='default' ProjectOpened='default' />
 var gulp = require("gulp");
 var ngAnnotate = require('gulp-ng-annotate');
 var concat = require('gulp-concat');
