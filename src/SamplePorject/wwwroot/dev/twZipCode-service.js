@@ -19,11 +19,11 @@
     function SearchByZipCode(targetZipCode) {
       var obj;
       _.forIn(SourceData, function (val, key) {
-        _.forIn(val, function (value, zipkey) {
-          if (value == targetZipCode) {
+        _.forIn(val, function (zipkey, district) {
+          if (zipkey == targetZipCode) {
             obj = {
               County: key,
-              District: value,
+              District: district,
               ZipCode: zipkey
             };
           }
