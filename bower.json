@@ -5,7 +5,7 @@
     "ChangYinShung <changyenshung@gmail.com>"
   ],
   "description": "taiwan zip/portal code for angular directive/component",
-  "main": [ "./dist/twProtalCode.directive.js","./dist/twProtalCode.directive.min.js" ],
+  "main": "./dist/twProtalCode.js",
   "keywords": [
     "angular",
     "tw-zipcode",
