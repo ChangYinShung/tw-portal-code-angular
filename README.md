@@ -26,9 +26,9 @@ full-address:`optional`
 ### Utility    
 #### SearchByZipCode
 ```` javascript
-  var app = angular.module('app', ['twProtalCode']);  
-  app.controller('Main', function(twProtalCode) {
-    var result = twProtalCode.SearchByZipCode(402);
+  var app = angular.module('app', ['twZipCode']);  
+  app.controller('Main', function(twZipCode) {
+    var result = twZipCode.SearchByZipCode(402);
     //result {"County":"台中市","District":"402","ZipCode":"南區"}
   });
 ````  
