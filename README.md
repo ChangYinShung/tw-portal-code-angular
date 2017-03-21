@@ -29,7 +29,7 @@ full-address:`optional`
   var app = angular.module('app', ['twZipCode']);  
   app.controller('Main', function(twZipCode) {
     var result = twZipCode.SearchByZipCode(402);
-    //result {"County":"台中市","District":"402","ZipCode":"南區"}
+    //result {"County":"台中市","District":"南區","ZipCode":"402"}
   });
 ````  
 
