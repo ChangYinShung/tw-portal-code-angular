@@ -184,15 +184,15 @@
 '             <div class="form-group">  ' +
 '               <label for="County">縣市</label>  ' +
 '               <select class="form-control"  ng-model="Ctrl.county" ng-options="option for option in Ctrl.countyOption" ng-change="Ctrl.ChangeCounty()" >' +
-//'                   <option value="">請選擇縣市</option>',
+'                   <option value="">請選擇縣市</option>' +
 '               </select>  ' +
 '             </div>  ' +
 '           </div>  ' +
 '           <div class="col-sm-4">  ' +
 '             <div class="form-group">  ' +
 '               <label for="District">鄉鎮區</label>  ' +
-'               <select class="form-control"  ng-model="Ctrl.shortAddress" ng-options="option as option.Name for option in Ctrl.districtOption" ng-change="Ctrl.ChangeDistrict()">' +
-//'                   <option value="">請選擇鄉鎮區</option>',
+'               <select class="form-control"  ng-model="Ctrl.shortAddress" ng-options="option as option.Name for option in Ctrl.districtOption" ng-change="Ctrl.ChangeDistrict()" ng-disabled=!Ctrl.county>' +
+'                   <option value="">請選擇鄉鎮</option>' +
 '               </select>  ' +
 '             </div>  ' +
 '           </div>  ' +
@@ -208,16 +208,16 @@
 '           <div class="col-sm-4">  ' +
 '             <div class="form-group">  ' +
 '               <label for="County">縣市</label>  ' +
-'               <select class="form-control"  ng-model="Ctrl.county" ng-options="option for option in Ctrl.countyOption" ng-change="Ctrl.ChangeCounty()" >' +
-//'                   <option value="">請選擇縣市</option>',
+'               <select class="form-control"  ng-model="Ctrl.county" ng-options="option for option in Ctrl.countyOption" ng-change="Ctrl.ChangeCounty()" >' + 
+'                   <option value="">全部</option>'+
 '               </select>  ' +
 '             </div>  ' +
 '           </div>  ' +
 '           <div class="col-sm-4">  ' +
 '             <div class="form-group">  ' +
 '               <label for="District">鄉鎮區</label>  ' +
-'               <select class="form-control"  ng-model="Ctrl.shortAddress" ng-options="option as option.Name for option in Ctrl.districtOption" ng-change="Ctrl.ChangeDistrict()">' +
-//'                   <option value="">請選擇鄉鎮區</option>',
+'               <select class="form-control"  ng-model="Ctrl.shortAddress" ng-options="option as option.Name for option in Ctrl.districtOption" ng-change="Ctrl.ChangeDistrict()" ng-disabled=!Ctrl.county>' +
+'                   <option value="">全部</option>' +
 '               </select>  ' +
 '             </div>  ' +
 '           </div>  ' +
