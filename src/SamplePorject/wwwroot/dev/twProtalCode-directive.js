@@ -54,17 +54,11 @@
     vm.ChangeDistrict = ChangeDistrict;
 
 
-    $scope.$watch('Ctrl.shortAddress', function (newValue, oldValue) {
-      if (!newValue) return;
-      if (newValue == oldValue) return;
-      vm.district = newValue.Name;
-      vm.zipcode = newValue.ID;
-    });
-    $scope.$watchGroup(['Ctrl.county', 'Ctrl.shortAddress'], function (newValue) {
-      if (!newValue[0]) return;
-      if (!vm.shortAddress) return;
 
-      vm.fullAddress = vm.shortAddress.ID + vm.county + vm.shortAddress.Name;
+    $scope.$watchGroup(['Ctrl.county', 'Ctrl.district'], function (newValue) {
+      if (!newValue[0]) return;
+
+      vm.fullAddress = vm.zipcode + vm.county + vm.district;
     })
 
 
@@ -101,11 +95,14 @@
       vm.fullAddress = vm.county;
     }
     function ChangeDistrict() {
-      if (!vm.shortAddress) {
-        vm.zipcode = undefined;
-        vm.district = undefined;
-        vm.fullAddress = vm.county;
-      }
+      //if (!vm.shortAddress) {
+      //  vm.zipcode = undefined;
+      //  vm.district = undefined;
+      //  vm.fullAddress = vm.county;
+      //}
+      vm.zipcode = _.chain(vm.districtOption).find(function (value) {
+        return value.Name == vm.district;
+      }).get('ID').value();
     }
   }
 
@@ -115,7 +112,7 @@
  '         <select  ng-model="Ctrl.county" ng-options="option for option in Ctrl.countyOption" ng-change="Ctrl.ChangeCounty()">' +
                         '<option  value="">請選擇縣市</option>' +
                       '</select>' +
-                      '<select  ng-model="Ctrl.shortAddress" ng-options="option as option.Name for option in Ctrl.districtOption" ng-change="Ctrl.ChangeDistrict()">' +
+                      '<select  ng-model="Ctrl.district" ng-options="option.Name as option.Name for option in Ctrl.districtOption" ng-change="Ctrl.ChangeDistrict()">' +
                         '<option  value="">鄉鎮區</option>' +
                       '</select>' +
                       '<input ng-model="Ctrl.zipcode" disabled>');
@@ -133,8 +130,8 @@
 '           <div class="col-sm-4">  ' +
 '             <div class="form-group">  ' +
 '               <label for="District">鄉鎮區</label>  ' +
-'               <select class="form-control"  ng-model="Ctrl.shortAddress" ng-options="option as option.Name for option in Ctrl.districtOption" ng-change="Ctrl.ChangeDistrict()" ng-disabled=!Ctrl.county>' +
-'                   <option value="">請選擇鄉鎮</option>' +
+'               <select class="form-control"  ng-model="Ctrl.district" ng-options="option.Name as option.Name for option in Ctrl.districtOption" ng-change="Ctrl.ChangeDistrict()" ng-disabled=!Ctrl.county>' +
+'                   <option value="" ng-if="!Ctrl.district">請選擇鄉鎮</option>' +
 '               </select>  ' +
 '             </div>  ' +
 '           </div>  ' +
@@ -158,7 +155,7 @@
 '           <div class="col-sm-4">  ' +
 '             <div class="form-group">  ' +
 '               <label for="District">鄉鎮區</label>  ' +
-'               <select class="form-control"  ng-model="Ctrl.shortAddress" ng-options="option as option.Name for option in Ctrl.districtOption" ng-change="Ctrl.ChangeDistrict()" ng-disabled=!Ctrl.county>' +
+'               <select class="form-control"  ng-model="Ctrl.district" ng-options="option.Name as option.Name for option in Ctrl.districtOption" ng-change="Ctrl.ChangeDistrict()" ng-disabled=!Ctrl.county>' +
 '                   <option value="">全部</option>' +
 '               </select>  ' +
 '             </div>  ' +
